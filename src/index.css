@@ -10,5 +10,5 @@
 }
 
 :root {
-    --fillPrimary: brown;
+    @apply bg-slate-600 relative w-full overflow-x-hidden;
   }

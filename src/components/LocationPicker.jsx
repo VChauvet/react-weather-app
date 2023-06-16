@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import useFetchLocaction from "../customHooks/useFetchLocaction";
 import OutsideClickHandler from '../wrapper/OutsideClickHandler';
 
-const LocationPicker = ({locationSetter}) => {
+const LocationPicker = ({locationSetter, utcOffsetSetter}) => {
     const [currentSearchTerm, setSearchTerm] = useState('');
     const [selectedLocation, setSelectedLocation] = useState('');
     const [isSearchMode, setSearchMode] = useState(true);
@@ -10,21 +10,23 @@ const LocationPicker = ({locationSetter}) => {
 
     
     const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY;    
-    useFetchLocaction(currentSearchTerm, setlocationData, apiKey, 1500);
+    useFetchLocaction(currentSearchTerm, setlocationData, apiKey, 800);
 
-    function handleLocationClick(event, location) {
-        event.preventDefault();
+    function updateLocation(location) {
         setSelectedLocation(location);
         locationSetter(location);
         setSearchMode(false);
+    }
+
+    function handleLocationClick(event, location) {
+        event.preventDefault();
+        updateLocation(location);
     }
     
     function handleLocationKeyPress(event, location) {
         event.preventDefault();
         if (event.key === "Enter") {
-            setSelectedLocation(location);
-            locationSetter(location);
-            setSearchMode(false);
+            updateLocation(location);
         }
 
     }

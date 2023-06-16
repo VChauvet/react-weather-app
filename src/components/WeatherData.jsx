@@ -16,6 +16,19 @@ const WeatherData = () => {
     const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY;
     useFetchWeather(location, setWeatherData, apiKey);
 
+
+
+
+
+
+
+    function getCurrentLocalTime() {
+        const currentTime = new Date();
+        const timezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000 + weatherData?.timezone * 1000;
+        const adjustedTime = new Date(currentTime.getTime() + timezoneOffset);
+        return (`${adjustedTime.getHours()}:${adjustedTime.getMinutes()}`);
+    }
+
     function Weather({weatherData}){
         const tempReadOut = weatherData?.main.temp;
         const tempMain = (Math.round(tempReadOut * 10) / 10).toFixed(1).replace(".", ",");
@@ -29,7 +42,8 @@ const WeatherData = () => {
 
         return (
             <>
-                <div className="w-full mb-24">
+                <div className="w-full mb-12">
+                    {isLoaded && getCurrentLocalTime()}
                     <div className="flex flex-col items-center">
                         <div className="text-white">
                             { isLoaded ? 
@@ -49,8 +63,9 @@ const WeatherData = () => {
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-3 gap-8 place-items-center max-w-screen-md p-x-16 mx-auto">
-                <div className="text-white w-full flex flex-col items-center">
+
+                <div className="grid grid-cols-3 gap-8 place-items-center max-w-screen-md p-x-16 mb-12 mx-auto">
+                    <div className="text-white w-full flex flex-col items-center">
                         <WeatherIcon
                             name="wind_value"
                             width="50"
@@ -58,11 +73,11 @@ const WeatherData = () => {
                         <div>Wind</div>
                         { isLoaded ? 
                             <div>
-                                {weatherData?.wind.speed}<span className="pl-2">m/s</span>
+                                {Math.round(weatherData?.wind.speed * 3.6)}<span className="pl-2">km/h</span>
                             </div>
                         :
                             <div>
-                                --<span className="pl-2">m/s</span>
+                                --<span className="pl-2">km/h</span>
                             </div>
                         }
                     </div>
@@ -108,11 +123,12 @@ const WeatherData = () => {
 
     return (
         <div>
-            <LocationPicker locationSetter={(location) => setLocation(location)} />
+            <LocationPicker locationSetter={(location) => setLocation(location)} utcOffsetSetter={(utcOffset) => setUtcOffset(utcOffset)} />
 
             <Weather weatherData={weatherData} />
 
             <WeatherForecast location={location} />
+
         </div>
     )
 }
