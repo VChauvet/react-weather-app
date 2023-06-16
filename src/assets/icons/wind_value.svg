@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+    <g transform="matrix(0.375,0,0,0.375,150,150)">
+        <g id="wind-03-svgrepo-com.svg" transform="matrix(1,0,0,1,-400,-400)">
+            <path d="M558.797,216.667C577.107,196.208 603.717,183.333 633.333,183.333C688.563,183.333 733.333,228.105 733.333,283.333C733.333,338.563 688.563,383.333 633.333,383.333L433.333,383.333M225.463,133.333C243.774,112.875 270.383,100 300,100C355.23,100 400,144.772 400,200C400,255.228 355.23,300 300,300L66.667,300M358.797,666.667C377.107,687.123 403.717,700 433.333,700C488.563,700 533.333,655.23 533.333,600C533.333,544.77 488.563,500 433.333,500L66.667,500" style="fill:none;fill-rule:nonzero;stroke:currentColor;stroke-width:66.67px;"/>
+        </g>
+        <g id="wind-03-svgrepo-com.svg1" serif:id="wind-03-svgrepo-com.svg">
+        </g>
+    </g>
+</svg>
