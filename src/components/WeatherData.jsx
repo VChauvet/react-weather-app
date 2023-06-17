@@ -21,6 +21,7 @@ const WeatherData = () => {
 
 
 
+    
 
     function getCurrentLocalTime() {
         const currentTime = new Date();
@@ -42,8 +43,10 @@ const WeatherData = () => {
 
         return (
             <>
-                <div className="w-full mb-12">
-                    {isLoaded && getCurrentLocalTime()}
+                <div className="relative w-full mb-12">
+                    <div className="absolute text-slate-200 text-lg">
+                        {isLoaded && getCurrentLocalTime()}
+                    </div>
                     <div className="flex flex-col items-center">
                         <div className="text-white">
                             { isLoaded ? 

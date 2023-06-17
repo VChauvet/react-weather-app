@@ -33,7 +33,7 @@ const LocationPicker = ({locationSetter, utcOffsetSetter}) => {
 
     return (
         <>
-            <div className="searchbarWrapper flex flex-col items-center">
+            <div className="searchbarWrapper relative flex flex-col items-center z-50">
                 <OutsideClickHandler handler={() => setSearchMode(false)}>
                     <div className="relative max-w-96 py-4">
                         <form onSubmit={e => e.preventDefault()}>   
