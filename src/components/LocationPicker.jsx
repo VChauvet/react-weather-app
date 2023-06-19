@@ -70,7 +70,7 @@ function LocationPicker ({locationSetter}) {
                             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-white sr-only dark:text-white">Search</label>
                             <div className="relative w-full">
                                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
-                                <DeviceLocationFinderButton />
+                                    <DeviceLocationFinderButton />
                                 </div>
                                 <input 
                                     autoFocus
