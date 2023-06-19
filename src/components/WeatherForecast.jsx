@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import useFetchWeatherForecast from '../customHooks/useFetchWeatherForecast';
 
 import WeatherIcon from '../components/WeatherIcon';
-import { list } from 'postcss';
 
 const WeatherForecast = ({location}) => {
     const [forecastData, setForecastData] = useState(null);
@@ -20,7 +19,7 @@ const WeatherForecast = ({location}) => {
 
     function getDate(timestamp) {
         const dateTime = getLocalDate(timestamp);
-        const options = { weekday: 'short'};
+        const options = { weekday: 'long'};
 
         const currentDay = getLocalDate(Date.now() /1000).getDay();
         if (dateTime.getDay() == currentDay) {
@@ -48,17 +47,24 @@ const WeatherForecast = ({location}) => {
                     const dayForecast = acc[weekDay] || []; 
 
                     const tempReadOut = listItem?.main.temp;
+                    const tempFeelReadOut = listItem?.main.feels_like;
 
                     dayForecast.push(
-                        <div className="px-1 pb-2 grow">
-                            <div className="relative min-h-[9rem] flex flex-col p-2 pb-4 items-center border rounded-md bg-white" key={index}>
+                        <div className="px-1 pb-2 grow" key={index}>
+                            <div className="relative min-h-[9rem] flex flex-col p-2 pb-4 items-center border rounded-md bg-white">
                                 <div className="absolute top-0 left-1 m-l m-t text-sm font-semibold text-slate-400">
                                     {getTime(listItem?.dt)}
                                 </div>
-                                <div className="py-1 pt-2 font-semibold text-slate-600">
+                                <div className="pt-2 font-semibold text-slate-600">
                                     {(Math.round(tempReadOut * 10) / 10).toFixed(1).replace(".", ",")}°C
                                 </div>
+                                <div className="font-semibold text-xs text-slate-600">
+                                    {(Math.round(tempFeelReadOut * 10) / 10).toFixed(1).replace(".", ",")}°C
+                                </div>
                                 <WeatherIcon name={listItem?.weather[0].icon} width='60' />
+                                <div className="py-1 pt-2 font-semibold text-sm break-words text-slate-600 max-w-[6rem] sm:max-w-none text-center">
+                                    {listItem?.weather[0].description}
+                                </div>
                             </div>
                         </div>
                     );

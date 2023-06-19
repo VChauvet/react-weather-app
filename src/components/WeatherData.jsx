@@ -126,7 +126,9 @@ const WeatherData = () => {
 
     return (
         <div>
-            <LocationPicker locationSetter={(location) => setLocation(location)} utcOffsetSetter={(utcOffset) => setUtcOffset(utcOffset)} />
+
+
+            <LocationPicker locationSetter={(location) => setLocation(location)} />
 
             <Weather weatherData={weatherData} />
 

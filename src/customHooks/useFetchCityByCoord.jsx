@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
-const useFetchWeather = (query, setData, apiKey, delay = 0) => {
+const useFetchWeather = (deviceCoord, setData, apiKey, delay = 0) => {
 
-  const request = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
+  const request = `http://api.openweathermap.org/geo/1.0/reverse?lat=${deviceCoord.lat}&lon=${deviceCoord.lon}&limit=3&appid=${apiKey}`;
   useEffect(
     () => {
         let queryTimer;
@@ -14,13 +14,13 @@ const useFetchWeather = (query, setData, apiKey, delay = 0) => {
             }, delay)
         }
 
-        query != '' ? debounceFetch() : false;
+        deviceCoord.lat && deviceCoord.lon ? debounceFetch() : false;
 
         return () => {
             clearTimeout(queryTimer);
         };
     },
-    [query]
+    [deviceCoord]
   );
 
   function fetchLocation() {
@@ -28,7 +28,7 @@ const useFetchWeather = (query, setData, apiKey, delay = 0) => {
           .then(response => response.json())
           .then(data => {
               console.log(data);
-              setData(data);
+              setData(data[0].name);
           })
           .catch(e => {
               console.log(e.message);
