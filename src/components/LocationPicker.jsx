@@ -63,9 +63,9 @@ function LocationPicker ({locationSetter}) {
 
     return (
         <>
-            <div className="searchbarWrapper relative flex flex-col items-center z-50">
+            <div className="searchbarWrapper relative w-full">
                 <OutsideClickHandler handler={() => setSearchMode(false)}>
-                    <div className="relative max-w-96 py-4">
+                    <div className="relative max-w-xs mx-auto py-4">
                         <form onSubmit={e => e.preventDefault()}>   
                             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-white sr-only dark:text-white">Search</label>
                             <div className="relative w-full">
@@ -105,7 +105,7 @@ function LocationPicker ({locationSetter}) {
                                 </button>
                             </div>
                         </form>
-                        <div className={`${locationData.length > 0 && isSearchMode == true ? 'opacity-100' : 'opacity-0'} absolute w-full px-6 py-2 transition-opacity text-lg bg-gray-50 block rounded-3xl rounded-t-xl shadow-md border border-gray-400`}>
+                        <div className={`${locationData.length > 0 && isSearchMode == true ? 'opacity-100' : 'opacity-0 pointer-events-none'} absolute w-full px-6 py-2 transition-opacity text-lg bg-gray-50 block rounded-3xl rounded-t-xl shadow-md border border-gray-400`}>
                             {locationData.length > 0 && (
                             <ul>
                                 {locationData.map((location, index) => (

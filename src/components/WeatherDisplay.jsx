@@ -7,11 +7,15 @@ function WeatherDisplay({weatherData}){
         const currentTime = new Date();
         const timezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000 + weatherData?.timezone * 1000;
         const adjustedTime = new Date(currentTime.getTime() + timezoneOffset);
-        return (`${adjustedTime.getHours()}:${adjustedTime.getMinutes()}`);
+        return (`Updated: ${adjustedTime.getHours()}:${adjustedTime.getMinutes()<10 ? '0':'' + adjustedTime.getMinutes()}`);
     }
 
-    const tempReadOut = weatherData?.main.temp;
-    const tempMain = (Math.round(tempReadOut * 10) / 10).toFixed(1).replace(".", ",");
+    function formatTemp(num) {
+        return (Math.round(num * 10) / 10).toFixed(1).replace(".", ",");
+    }
+
+    const tempMain = formatTemp(weatherData?.main.temp);
+    const tempFeel = formatTemp(weatherData?.main.feels_like);
 
     let isLoaded = false;
     if (weatherData) {
@@ -21,10 +25,10 @@ function WeatherDisplay({weatherData}){
     return (
         <>
             <div className="relative w-full mb-12">
-                <div className="absolute text-slate-200 text-lg">
+                <div className="absolute right-0 text-slate-200 text-lg">
                     {isLoaded && getCurrentLocalTime()}
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="relative flex flex-col items-center -z-10">
                     <div className="text-white">
                         { isLoaded ? 
                             <WeatherIcon
@@ -40,6 +44,9 @@ function WeatherDisplay({weatherData}){
                     </div>
                     <div className="text-center text-6xl font-semibold text-white">
                         {tempMain}<span className="text-4xl align-top pl-2">°C</span>
+                    </div>
+                    <div className="text-center text-2xl font-normal text-white">
+                        feels {tempFeel}<span className="text-xl align-top pl-2">°C</span>
                     </div>
                 </div>
             </div>
