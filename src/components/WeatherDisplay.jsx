@@ -51,7 +51,7 @@ function WeatherDisplay({weatherData}){
                 </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 place-items-center max-w-screen-md p-x-16 mb-12 mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 place-items-center max-w-screen-md p-x-16 mb-12 mx-auto">
                 <div className="text-white w-full flex flex-col items-center">
                     <WeatherIcon
                         name="wind_value"

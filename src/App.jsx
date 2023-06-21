@@ -47,17 +47,17 @@ function App() {
     return (
         <div className="max-w-screen-lg px-2 mx-auto">
         
-            <motion.div className="absolute z-10 w-screen h-screen top-0 left-0 right-0 bg-blue-800 overflow-hidden"
+            <motion.div className="absolute z-10 w-screen h-screen top-0 left-0 right-0 bottom-0 bg-blue-800 overflow-hidden"
                 initial="visible"
                 animate={animationState ? "hidden" : "visible"}
                 variants={pageReveal}
             />
 
-            <div className="relative max-w-md mx-auto">
+            <div className="relative max-w-md mx-auto w-full">
                 <motion.div
                     className="z-10 relative w-full"
                     layout
-                    style={{ transform: animationState ? "translate(0)" : "translate(0, 42vh) scale(1.4)" }}
+                    style={{ transform: animationState ? "translate(0)" : "translate(0, 42vh) scale(1)" }}
                 >
                     <LocationPicker locationSetter={(location) => setLocation(location)} />
                 </motion.div>
