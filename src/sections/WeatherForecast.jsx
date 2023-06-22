@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useFetchWeatherForecast from '../customHooks/useFetchWeatherForecast';
-import { motion, transform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import WeatherIcon from '../components/WeatherIcon';
 
@@ -13,7 +13,7 @@ const WeatherForecast = ({location}) => {
 
 
     const animationContainer = {
-        visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
+        visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
         hidden: { opacity: 0, y: 10 },
     };
     const animationCard = {

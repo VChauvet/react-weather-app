@@ -1,5 +1,5 @@
-import WeatherIcon from './WeatherIcon';
-import LoadingIcon from './LoadingCircle';
+import WeatherIcon from '../components/WeatherIcon';
+import LoadingIcon from '../components/LoadingCircle';
 
 
 function WeatherDisplay({weatherData}){
@@ -7,7 +7,7 @@ function WeatherDisplay({weatherData}){
         const currentTime = new Date();
         const timezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000 + weatherData?.timezone * 1000;
         const adjustedTime = new Date(currentTime.getTime() + timezoneOffset);
-        return (`Updated: ${adjustedTime.getHours()}:${adjustedTime.getMinutes()<10 ? '0':'' + adjustedTime.getMinutes()}`);
+        return (`Updated: ${adjustedTime.getHours()}:${(adjustedTime.getMinutes()<10 ? '0':'') + adjustedTime.getMinutes()}`);
     }
 
     function formatTemp(num) {

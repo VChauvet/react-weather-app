@@ -11,4 +11,8 @@
 
 :root {
     @apply bg-slate-900;
-  }
+}
+
+div.container {
+	@apply relative max-w-screen-lg px-4 mx-auto;
+}

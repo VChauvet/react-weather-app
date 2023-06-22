@@ -4,9 +4,9 @@ import { motion } from "framer-motion"
 import React, { useEffect, useState } from 'react'
 import useFetchWeather from './customHooks/useFetchWeather';
 
-import LocationPicker from './components/LocationPicker';
-import WeatherDisplay from './components/WeatherDisplay';
-import WeatherForecast from './components/WeatherForecast';
+import LocationPicker from './sections/LocationPicker';
+import WeatherDisplay from './sections/WeatherDisplay';
+import WeatherForecast from './sections/WeatherForecast';
 
 function App() {
     const [location, setLocation] = useState(null);
@@ -45,15 +45,15 @@ function App() {
     };
     
     return (
-        <div className="max-w-screen-lg px-2 mx-auto">
+        <div className="relative">
         
-            <motion.div className="absolute z-10 w-screen h-screen top-0 left-0 right-0 bottom-0 bg-blue-800 overflow-hidden"
+            <motion.div className="absolute z-20 w-screen h-screen top-0 left-0 right-0 bottom-0 bg-blue-800 overflow-hidden"
                 initial="visible"
                 animate={animationState ? "hidden" : "visible"}
                 variants={pageReveal}
             />
 
-            <div className="relative max-w-md mx-auto w-full">
+            <div className="container z-50 max-w-md mx-auto w-full">
                 <motion.div
                     className="z-10 relative w-full"
                     layout
@@ -63,9 +63,13 @@ function App() {
                 </motion.div>
             </div>
 
-            <div className=''>
-                <WeatherDisplay weatherData={weatherData} />
-                
+            <div className="relative w-screen bg-red-400 py-4 mb-4">
+                <div className="container z-10">
+                    <WeatherDisplay weatherData={weatherData} />
+                </div>
+            </div>
+            
+            <div className="container">
                 <WeatherForecast location={location} />
             </div>
             
