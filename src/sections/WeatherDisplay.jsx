@@ -1,17 +1,13 @@
 import WeatherIcon from '../components/WeatherIcon';
 import LoadingIcon from '../components/LoadingCircle';
 
+import { formatTemp, getTime } from '../utils/dateFormatHelper';
 
-function WeatherDisplay({weatherData}){
+
+
+function WeatherDisplay({ weatherData }){
     function getCurrentLocalTime() {
-        const currentTime = new Date();
-        const timezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000 + weatherData?.timezone * 1000;
-        const adjustedTime = new Date(currentTime.getTime() + timezoneOffset);
-        return (`Updated: ${adjustedTime.getHours()}:${(adjustedTime.getMinutes()<10 ? '0':'') + adjustedTime.getMinutes()}`);
-    }
-
-    function formatTemp(num) {
-        return (Math.round(num * 10) / 10).toFixed(1).replace(".", ",");
+        return (`Updated: ${getTime(weatherData.dt, weatherData.timezone)}`)
     }
 
     const tempMain = formatTemp(weatherData?.main.temp);
@@ -32,6 +28,7 @@ function WeatherDisplay({weatherData}){
                     <div className="text-white">
                         { isLoaded ? 
                             <WeatherIcon
+                                className="drop-shadow-md"
                                 name={weatherData?.weather[0].icon}
                                 width="200"
                             />
@@ -100,10 +97,7 @@ function WeatherDisplay({weatherData}){
                         </div>
                     }
                 </div>
-
-
             </div>
-
         </>
     )
 }

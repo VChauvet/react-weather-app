@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const OutSideClickHandler = ({ handler, children }) => {
+function OutSideClickHandler ({ handler, children }) {
     const ref = useRef(null);
 
     useEffect(

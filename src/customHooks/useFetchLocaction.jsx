@@ -27,7 +27,6 @@ const useFetchWeather = (query, setData, apiKey, delay = 0) => {
       fetch(request)
           .then(response => response.json())
           .then(data => {
-              console.log(data);
               setData(data);
           })
           .catch(e => {

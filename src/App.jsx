@@ -1,20 +1,20 @@
-import './App.css'
+import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
 
-import React, { useEffect, useState } from 'react'
 import useFetchWeather from './customHooks/useFetchWeather';
 
 import LocationPicker from './sections/LocationPicker';
 import WeatherDisplay from './sections/WeatherDisplay';
 import WeatherForecast from './sections/WeatherForecast';
 
+import DynamicBackground from './components/DynamicBackground';
+
 function App() {
     const [location, setLocation] = useState(null);
     const [weatherData, setWeatherData] = useState(null);
 
     const [animationState, setAnimationState] = useState(false);
-    
-    
+
     const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY;
     useFetchWeather(location, setWeatherData, apiKey);
 
@@ -63,11 +63,15 @@ function App() {
                 </motion.div>
             </div>
 
-            <div className="relative w-screen bg-red-400 py-4 mb-4">
+            
+            <DynamicBackground weatherData={weatherData}>
                 <div className="container z-10">
                     <WeatherDisplay weatherData={weatherData} />
                 </div>
-            </div>
+            </DynamicBackground>
+
+
+
             
             <div className="container">
                 <WeatherForecast location={location} />
