@@ -14,7 +14,7 @@ const useFetchWeather = (query, setData, apiKey, delay = 0) => {
             }, delay)
         }
 
-        query != '' ? debounceFetch() : false;
+        query !== '' ? debounceFetch() : false;
 
         return () => {
             clearTimeout(queryTimer);

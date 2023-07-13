@@ -20,7 +20,7 @@ function WeatherDisplay({ weatherData }){
 
     return (
         <>
-            <div className="relative w-full mb-12">
+            <div className="relative w-full pb-12 drop-shadow-lg">
                 <div className="absolute right-0 text-slate-200 text-lg">
                     {isLoaded && getCurrentLocalTime()}
                 </div>

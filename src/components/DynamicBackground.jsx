@@ -9,7 +9,6 @@ function DynamicBackground({ weatherData, children }) {
     useEffect(()=>{
         const updateGradientAngle = () => {
             setGradientDeg(weatherStylings[weatherData?.weather[0]?.icon]?.gradient || 180);
-            //setGradientDeg(250);
         };
       
         updateGradientAngle();

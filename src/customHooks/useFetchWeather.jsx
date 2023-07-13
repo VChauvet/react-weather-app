@@ -6,20 +6,7 @@ const useFetchWeather = (location, setData, apiKey, delay = 0) => {
   
   useEffect(
     () => {
-        let queryTimer;
-        function debounceFetch() {
-            clearTimeout(queryTimer);
-
-            queryTimer = setTimeout(() => {
-                fetchLocation()
-            }, delay)
-        }
-
-        location != null ? debounceFetch() : false;
-
-        return () => {
-            clearTimeout(queryTimer);
-        };
+        location !== null ? fetchLocation() : false;
     },
     [location]
   );

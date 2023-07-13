@@ -31,7 +31,7 @@ function LocationPicker ({locationSetter}) {
             });
         }
     
-        return <button onClick={getLocation} className={`rounded-full absolute ${!isSearchMode && currentSearchTerm != '' && selectedLocation && 'text-white'}`}>
+        return <button onClick={getLocation} className={`rounded-full absolute ${!isSearchMode && currentSearchTerm !== '' && selectedLocation && 'text-white'}`}>
             <SvgIcon 
                 iconName="location_pin"
                 svgProp={{
@@ -80,7 +80,7 @@ function LocationPicker ({locationSetter}) {
                                     id="default-search" 
                                     type="search" 
                                     className={`
-                                        ${ !isSearchMode && currentSearchTerm != '' && selectedLocation ? 'opacity-0' : 'opacity-100'}
+                                        ${ !isSearchMode && currentSearchTerm !== '' && selectedLocation ? 'opacity-0' : 'opacity-100'}
                                         block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                     `}
                                     placeholder="Where?" 
@@ -90,7 +90,7 @@ function LocationPicker ({locationSetter}) {
                                     id="default-search" 
                                     type="search" 
                                     className={`
-                                        ${ !isSearchMode && currentSearchTerm != '' && selectedLocation ? 'opacity-100' : 'opacity-0'}
+                                        ${ !isSearchMode && currentSearchTerm !== '' && selectedLocation ? 'opacity-100' : 'opacity-0'}
                                         pointer-events-none block absolute top-0 w-full p-4 pl-10 text-sm text-white border-2 border-white rounded-full bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
                                     `}
 

@@ -19,7 +19,7 @@ function App() {
     useFetchWeather(location, setWeatherData, apiKey);
 
     useEffect(()=>{
-        if (location != null) setAnimationState(true);
+        if (location !== null) setAnimationState(true);
     }, [location]);
 
 
@@ -34,7 +34,7 @@ function App() {
             }
         }),
         hidden: {
-            clipPath: "circle(0px at 50vw -4vh)",
+            clipPath: "circle(0 at 50vw -4vh)",
             transition: {
                 delay: 0.5,
                 type: "spring",
@@ -47,7 +47,7 @@ function App() {
     return (
         <div className="relative">
         
-            <motion.div className="absolute z-20 w-screen h-screen top-0 left-0 right-0 bottom-0 bg-blue-800 overflow-hidden"
+            <motion.div className="absolute z-20 w-screen h-screen top-0 left-0 right-0 bottom-0 bg-blue-950 overflow-hidden"
                 initial="visible"
                 animate={animationState ? "hidden" : "visible"}
                 variants={pageReveal}
