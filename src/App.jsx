@@ -47,7 +47,7 @@ function App() {
     return (
         <div className="relative">
         
-            <motion.div className="absolute z-20 w-screen h-screen top-0 left-0 right-0 bottom-0 bg-blue-950 overflow-hidden"
+            <motion.div className="absolute z-20 w-full h-screen top-0 left-0 right-0 bottom-0 bg-blue-950 overflow-hidden"
                 initial="visible"
                 animate={animationState ? "hidden" : "visible"}
                 variants={pageReveal}

@@ -11,8 +11,7 @@ function LocationPicker ({locationSetter}) {
     const [selectedLocation, setSelectedLocation] = useState('');
     const [isSearchMode, setSearchMode] = useState(true);
     const [locationData, setlocationData] = useState([]);
-    const [deviceCoord, setDeviceCoord] = useState({lat: '', lon: ''});
-    
+    const [deviceCoord, setDeviceCoord] = useState({lat: '', lon: ''});    
     
     const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY;    
     useFetchLocaction(currentSearchTerm, setlocationData, apiKey, 800);
@@ -54,11 +53,10 @@ function LocationPicker ({locationSetter}) {
     }
     
     function handleLocationKeyPress(event, location) {
-        event.preventDefault();
         if (event.key === "Enter") {
+            event.preventDefault();
             updateLocation(location);
         }
-
     }
 
     return (
