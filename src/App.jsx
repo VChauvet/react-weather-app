@@ -25,8 +25,8 @@ function App() {
 
     
     const pageReveal = {
-        visible: (height = 2000) => ({
-            clipPath: `circle(${height} at 50vw -4vh)`,
+        visible: (height = 200) => ({
+            clipPath: `circle(${height}% at 50vw -4vh)`,
             transition: {
                 type: "spring",
                 stiffness: 20,
@@ -34,7 +34,7 @@ function App() {
             }
         }),
         hidden: {
-            clipPath: "circle(0 at 50vw -4vh)",
+            clipPath: "circle(0% at 50vw -4vh)",
             transition: {
                 delay: 0.5,
                 type: "spring",
