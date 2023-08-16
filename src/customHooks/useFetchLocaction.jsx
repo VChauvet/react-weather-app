@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 const useFetchWeather = (query, setData, apiKey, delay = 0) => {
 
-  const request = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
+  const request = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
   useEffect(
     () => {
         let queryTimer;

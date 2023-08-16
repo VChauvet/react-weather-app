@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 const useFetchWeather = (deviceCoord, setData, apiKey, delay = 0) => {
 
-  const request = `http://api.openweathermap.org/geo/1.0/reverse?lat=${deviceCoord.lat}&lon=${deviceCoord.lon}&limit=3&appid=${apiKey}`;
+  const request = `https://api.openweathermap.org/geo/1.0/reverse?lat=${deviceCoord.lat}&lon=${deviceCoord.lon}&limit=3&appid=${apiKey}`;
   useEffect(
     () => {
         let queryTimer;
