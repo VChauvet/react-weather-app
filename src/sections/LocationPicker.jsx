@@ -94,7 +94,7 @@ function LocationPicker ({locationSetter}) {
 
                                     required 
                                 >
-                                    {selectedLocation.name} , {selectedLocation.country}
+                                    {selectedLocation.name}, {selectedLocation.country}
                                 </div>
 
 
