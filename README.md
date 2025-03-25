@@ -1,5 +1,7 @@
 # React Weather Forecast Experiment
 
+Currently hosted on: https://weather.fluffycode.de/
+
 **Overview**
 
 This is a dynamic weather application experiment implemented in React. Weather data is retrieved through the OpenWeather API and displayed for the current day in 3-hour increments, as well as for the following two days.
